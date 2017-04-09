@@ -6,8 +6,8 @@ public class RealizarCadastro {
 	static int menu(){
 		Scanner leitor = new Scanner(System.in);
 		int opc = 0;
-		System.out.println("\nDigite 1 para realizar cadastro de cliente: ");
-		System.out.println("\nCadastro de contratos 2\nLista de clientes 3\n Lista de contratos 4 ");
+		System.out.println("\n1- Para realizar cadastro de cliente");
+		System.out.println("\n2- Para cadastro de contratos \n3- Para lista de clientes \n");
 		 
 		opc = leitor.nextInt();
 		
@@ -106,6 +106,7 @@ public class RealizarCadastro {
 		 static void obterContratoEmpresarial(Empresarial empresarial, float valorAtual){
 			 int numFunc = 0;
 			 int numVis = 0;
+			 int ramo;
 			 
 			 Scanner leitor = new Scanner(System.in);
 			 System.out.println("informe o numero de funcionarios e de visitas: ");
@@ -113,6 +114,14 @@ public class RealizarCadastro {
 			 numFunc = leitor.nextInt();
 			 numVis = leitor.nextInt();
 			 
+			 
+			 System.out.println("Informe o ramo da sua empresa 1 para comercio 2 para industria: ");
+			 
+			 ramo = leitor.nextInt();
+			 
+			 empresarial.setRamo(ramo);
+			 
+			 empresarial.setRamo(ramo);
 			 empresarial.setValor(valorAtual);
 			 
 			 empresarial.setNumFunc(numFunc);
@@ -122,11 +131,17 @@ public class RealizarCadastro {
 			 
 			 
 		 }
-	
+		 
+		 
+		 
+
+		
+		 
 	public static void main(String[] args) {
 		int tipoImovel = 0;
 		int tipoPessoa; // Se Pessoa Fisica ou juridica 
 		String nomePessoa;
+		int re = 0;
 		
 		int opcSair = 0;
 		Scanner leitor = new Scanner(System.in);
@@ -137,7 +152,8 @@ public class RealizarCadastro {
 		
 		
 		do{
-			
+	
+			do{
 		int opc = menu();
 		
 		switch(opc){
@@ -145,7 +161,7 @@ public class RealizarCadastro {
 		
 		
 		case 1:	
-			System.out.println("Por favor, responda 1 se sim ou 2 se  não");
+			System.out.println("Por favor, responda apenas 1 se sim ou 2 se não");
 			System.out.println("Voce e pessoa fisica? ");
 			tipoPessoa = leitor.nextInt();
 			if(tipoPessoa == 1){
@@ -160,9 +176,8 @@ public class RealizarCadastro {
 				
 			}
 			
-			System.out.println("Digite -1 sair: ");
-			opcSair = leitor.nextInt();
 			
+			break;
 			
 		
 			
@@ -174,8 +189,6 @@ public class RealizarCadastro {
 			float valorAtual = leitor.nextFloat();
 			
 			obterContratoResidencial(residencial, valorAtual);
-			
-			System.out.println("O valor do imovel ficará: " + residencial.getValorImovel());
 			}
 			
 			
@@ -186,12 +199,55 @@ public class RealizarCadastro {
 				//ObterContratoEmpresarial
 				
 				obterContratoEmpresarial(empresarial, valorAtual);
-				System.out.println("O valor do imovel ficará: " + empresarial.getValorImovel());
-				
+	
 				
 			}
+			else{
+				System.out.println("Informe um valor valido ");
+				
+			}
+			break;
+			
+		case 3:
+			System.out.println("Seu cadastro foi de pessoa fisica? sim 1 nao 2");
+			int cad = leitor.nextInt();
+			
+			if(cad == 1){
+			System.out.println("              Pessoa fisica");
+			System.out.println("Nome: " + pessoaFisica.getNome());
+			System.out.println("Cpf: "+ pessoaFisica.getCpf());
+			System.out.println("Endereço: " + pessoaFisica.getEndereco());
+			System.out.println("Valor final: " + residencial.getValorImovel()*100);
+			System.out.println("--------------------------------------------------");
+			}
+			
+			
+			else if(cad == 2){
+				System.out.println("              Pessoa juridica");
+				System.out.println("Nome: " + pessoaJuridica.getNome());
+				System.out.println("Cnpj: "+ pessoaJuridica.getCnpj());
+				System.out.println("Endereço: " + pessoaJuridica.getEndereco());
+				System.out.println("Valor final: " + residencial.getValorImovel()*100);
+				System.out.println("--------------------------------------------------");
+					
+			}
+			
+			break;
+			
+			
+			
+			
 		}
+		System.out.println("Deseja realizar outra opc? para sair digite -1 ou qualquer outro valor para continuar  ");
+		re = leitor.nextInt();
+			}while(re != -1);
+			
+			
+			System.out.println("Digite -1 sair para sair do programa: ");
+			opcSair = leitor.nextInt();
 		}while(opcSair!= -1);
+		
+		
 	}
 
 }

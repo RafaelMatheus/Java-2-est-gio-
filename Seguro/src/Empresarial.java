@@ -4,7 +4,7 @@ public class Empresarial extends Contrato{
 	private float valorImovel;
 	private int numFunc;
 	private int numVis;
-	private boolean ramo;
+	private int ramo;
 
 	public Cliente getCliente() {
 		return cliente;
@@ -23,16 +23,17 @@ public class Empresarial extends Contrato{
 		
 		valorFinal = (float) (getValor() * 0.04);
 		
-		if(ramo == true /* se for industria */){
+		if(ramo == 1/* se for industria */){
 			valorFinal *= 0.01;
 			
 		}
 	
-		else if(ramo == false ){
+		else if(ramo == 2){
 			valorFinal *= 0.01;
 			
 		}
-		 
+		
+		valorFinal += (this.numFunc + this.numVis) ;
 		
 		
 		this.valorImovel = valorFinal;
@@ -54,11 +55,11 @@ public class Empresarial extends Contrato{
 		this.numVis = numVis;
 	}
 
-	public boolean getRamo() {
+	public int getRamo() {
 		return ramo;
 	}
 
-	public void setRamo(boolean ramo) {
+	public void setRamo(int ramo) {
 		this.ramo = ramo;
 	}
 
