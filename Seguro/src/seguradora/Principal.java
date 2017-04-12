@@ -1,17 +1,17 @@
 package seguradora;
 
 /**
- * Classe com main que simula uma seguradora de imóveis
+ * Classe com main que simula uma seguradora de imÃ³veis
  * @author: alvaro.santos
  * @date: 11 de abr de 2017
  */
 
-import java.util.Scanner; // Importação da classe Scanner
+import java.util.Scanner; // ImportaÃ§Ã£o da classe Scanner
 
 public class Principal {
 	
 	/**
-	 * Menu de opções
+	 * Menu de opÃ§Ãµes
 	 */
 	
 	public static void menu() {
@@ -24,7 +24,7 @@ public class Principal {
 		System.out.println("[7] Lista de contratos sem sinistro");
 		System.out.println("[8] Sair");
 		
-		System.out.println("\nDigite uma opção: ");
+		System.out.println("\nDigite uma opÃ§Ã£o: ");
 	}
 	
 	public static void main(String[] args) {
@@ -34,17 +34,17 @@ public class Principal {
 		Scanner leitor = new Scanner(System.in); // Instanciamento da classe Scanner
 		
 		/**
-		 * Variáveis de controle
+		 * VariÃ¡veis de controle
 		 */
 		
 		int contPf = 0, contPj = 0, contContRes = 0, contContEmp = 0, contSinRes = 0, contSinEmp = 0, tamvt = 50;
 		
 		/**
-		 * # Variáveis de Controle #
+		 * # VariÃ¡veis de Controle #
 		 * 
-		 * contPf - contador de pessoa física
+		 * contPf - contador de pessoa fÃ­sica
 		 * 
-		 * contPj - contador de pessoa jurídica
+		 * contPj - contador de pessoa jurÃ­dica
 		 * 
 		 * contContRes - contador de contrato residencial
 		 *  
@@ -58,11 +58,11 @@ public class Principal {
 		 */
 		
 		/**
-		 *  Instanciamento de Pessoa Física
+		 *  Instanciamento de Pessoa FÃ­sica
 		 */
 		PessoaFisica pf[] = new PessoaFisica[tamvt];
 		/**
-		 *  Instanciamento de Pessoa Jurídica
+		 *  Instanciamento de Pessoa JurÃ­dica
 		 */
 		PessoaJuridica pj[] = new PessoaJuridica[tamvt];
 		
@@ -90,7 +90,7 @@ public class Principal {
 		
 		do {
 		
-			// Menu de Opções
+			// Menu de OpÃ§Ãµes
 			
 			menu();
 			opcao = leitor.nextInt();
@@ -103,16 +103,16 @@ public class Principal {
 				while (opcaolaco != 0) {				
 					
 					int opcaopessoa = 0;
-					System.out.println("[1] Pessoa Física [2] Pessoa Jurídica: ");
+					System.out.println("[1] Pessoa FÃ­sica [2] Pessoa JurÃ­dica: ");
 					opcaopessoa = leitor.nextInt();
 					
 					/**
-					 * Pessoa Física
+					 * Pessoa FÃ­sica
 					 */
 					
 					if (opcaopessoa == 1) {
 						
-						pf[contPf] = new PessoaFisica(); // inicia array de pessoa física
+						pf[contPf] = new PessoaFisica(); // inicia array de pessoa fÃ­sica
 									
 						System.out.println("CPF: ");
 						pf[contPf].setCpf(new Scanner(System.in).nextLine());
@@ -120,19 +120,19 @@ public class Principal {
 						System.out.println("Nome: ");
 						pf[contPf].setNome(new Scanner(System.in).nextLine());
 									
-						System.out.println("Endereço: ");
+						System.out.println("EndereÃ§o: ");
 						pf[contPf].setEndereco(new Scanner(System.in).nextLine());
 						
-						contPf++; // Incrementa o contador pessoa física
+						contPf++; // Incrementa o contador pessoa fÃ­sica
 					}
 					
 					/**
-					 * Pessoa Jurídica
+					 * Pessoa JurÃ­dica
 					 */
 					
 					if (opcaopessoa == 2) {
 						
-						pj[contPj] = new PessoaJuridica(); // inicia array de pessoa jurídica
+						pj[contPj] = new PessoaJuridica(); // inicia array de pessoa jurÃ­dica
 								
 						System.out.println("CNPJ: ");
 						pj[contPj].setCnpj(new Scanner(System.in).nextLine());
@@ -140,10 +140,10 @@ public class Principal {
 						System.out.println("Nome: ");
 						pj[contPj].setNome(new Scanner(System.in).nextLine());
 								
-						System.out.println("Endereço: ");
+						System.out.println("EndereÃ§o: ");
 						pj[contPj].setEndereco(new Scanner(System.in).nextLine());
 								
-						contPj++; // incrementa o contador pessoa jurídica		
+						contPj++; // incrementa o contador pessoa jurÃ­dica		
 					}
 					
 					System.out.println("\nDeseja adicionar outro cliente? [1] Sim [0] Nao");
@@ -172,22 +172,22 @@ public class Principal {
 						int i = 0, escolha = 0;
 						
 						/**
-						 * Exibe lista de pessoas físicas cadastradas
+						 * Exibe lista de pessoas fÃ­sicas cadastradas
 						 */
 						
 						for (i = 0; i < contPf; i++) {
 							System.out.printf("[%d] %s - %s\n", i, pf[i].getCpf(), pf[i].getNome());
 						}
 						
-						System.out.println("\nDigite o número do cliente que deseja adicionar o contrato: ");
+						System.out.println("\nDigite o nÃºmero do cliente que deseja adicionar o contrato: ");
 						escolha = leitor.nextInt();
 						
 						ctres[contContRes].setCltpf(pf[escolha]); // adiciona cliente selecionado no contrado a ser cadastrado
 						
-						System.out.println("Endereço: ");
+						System.out.println("EndereÃ§o: ");
 						ctres[contContRes].setEndereco(new Scanner(System.in).nextLine());
 						
-						System.out.println("Valor do Imóvel: ");
+						System.out.println("Valor do ImÃ³vel: ");
 						ctres[contContRes].setVlrimv(new Scanner(System.in).nextInt());
 						
 						System.out.println("Zona:  1 - [Urbana] - 2 - [Suburbana] - 3 - [Rural]: ");
@@ -210,28 +210,28 @@ public class Principal {
 						int i = 0, escolha = 0;
 						
 						/**
-						 * Exibe lista de pessoas jurídicas cadastradas
+						 * Exibe lista de pessoas jurÃ­dicas cadastradas
 						 */
 						
 						for (i = 0; i < contPj; i++) {
 							System.out.printf("[%d] %s - %s\n", i, pj[i].getCnpj(), pj[i].getNome());
 						}
 						
-						System.out.println("\nDigite o número do cliente que deseja adicionar o contrato: ");
+						System.out.println("\nDigite o nÃºmero do cliente que deseja adicionar o contrato: ");
 						escolha = leitor.nextInt();
 						
 						ctemp[contContEmp].setCltpj(pj[escolha]); // adiciona cliente selecionado ao contrato a ser cadastrado
 						
-						System.out.println("Valor do Imóvel: ");
+						System.out.println("Valor do ImÃ³vel: ");
 						ctemp[contContEmp].setVlrimv(new Scanner(System.in).nextInt());
 
-						System.out.println("Número de Funcionários: ");
+						System.out.println("NÃºmero de FuncionÃ¡rios: ");
 						ctemp[contContEmp].setNfunc(new Scanner(System.in).nextInt());
 						
-						System.out.println("Número de Visitas Diárias: ");
+						System.out.println("NÃºmero de Visitas DiÃ¡rias: ");
 						ctemp[contContEmp].setNvis(new Scanner(System.in).nextInt());
 						
-						System.out.println("Ramo:  1 - [Comércio] - 2 - [Indústria] - 3 - [Agropecuária]: ");
+						System.out.println("Ramo:  1 - [ComÃ©rcio] - 2 - [IndÃºstria] - 3 - [AgropecuÃ¡ria]: ");
 						ctemp[contContEmp].setRamo(new Scanner(System.in).nextInt());
 						
 						contContEmp++; // incrementa contador contrato empresarial			
@@ -249,11 +249,11 @@ public class Principal {
 				
 				int ii1 = 0, ii2 = 0;
 				
-				System.out.println("Pessoa Física");
+				System.out.println("Pessoa FÃ­sica");
 				System.out.println("************************************");
 				
 				/**
-				 * Exibe lista de pessoas físicas cadastradas
+				 * Exibe lista de pessoas fÃ­sicas cadastradas
 				 */
 				
 				for (ii1 = 0; ii1 < contPf; ii1++) {
@@ -262,11 +262,11 @@ public class Principal {
 					System.out.println("--------------------------------------------------------------------------------\n");
 				}
 				
-				System.out.println("Pessoa Jurídica");
+				System.out.println("Pessoa JurÃ­dica");
 				System.out.println("************************************");
 				
 				/**
-				 * Exibe lista de pessoas jurídicas cadastradas
+				 * Exibe lista de pessoas jurÃ­dicas cadastradas
 				 */
 				
 				for (ii2 = 0; ii2 < contPj; ii2++) {
@@ -340,17 +340,17 @@ public class Principal {
 							System.out.printf("[%d] %s - %s\n", i2, ctres[i2].getCltpf().nome, ctres[i2].getEndereco());
 						}
 						
-						System.out.println("\nDigite o número do contrato que deseja adicionar o sinistro residencial: ");
+						System.out.println("\nDigite o nÃºmero do contrato que deseja adicionar o sinistro residencial: ");
 						escolha = leitor.nextInt();
 						
 						snres[contSinRes].setPf(pf[escolha]); // adiciona cliente selecionado no sinistro a ser cadastrado
 						snres[contSinRes].setContrato(ctres[escolha]); // adiciona contrato do cliente selecionado
-						ctres[escolha].setSinistro(true); // diz que o contrato do cliente selecionado contém sinistro
+						ctres[escolha].setSinistro(true); // diz que o contrato do cliente selecionado contÃ©m sinistro
 						
 						System.out.println("Data - Ex: 20/03/2017:  ");
 						snres[contSinRes].setData(new Scanner(System.in).nextLine());
 						
-						System.out.println("Porcentagem da Perca: ");
+						System.out.println("Porcentagem da Perca - Ex: 20 30 50: ");
 						snres[contSinRes].setPorcentagem(new Scanner(System.in).nextDouble());
 
 						contSinRes++; // incrementa contador sinistro residencial	
@@ -374,12 +374,12 @@ public class Principal {
 							System.out.printf("[%d] %s - %s\n", i2, ctemp[i2].getCltpj().nome, ctemp[i2].getCltpj().endereco);
 						}
 						
-						System.out.println("\nDigite o número do contrato que deseja adicionar o sinistro empresarial: ");
+						System.out.println("\nDigite o nÃºmero do contrato que deseja adicionar o sinistro empresarial: ");
 						escolha = leitor.nextInt();
 						
 						snemp[contSinEmp].setPj(pj[escolha]); // adiciona cliente selecionado no sinistro a ser cadastrado
 						snemp[contSinEmp].setContrato(ctemp[escolha]); // adiciona contrato do cliente selecionado
-						ctemp[escolha].setSinistro(true); // diz que o contrato do cliente selecionado contém sinistro
+						ctemp[escolha].setSinistro(true); // diz que o contrato do cliente selecionado contÃ©m sinistro
 						
 						System.out.println("Data - Ex: 20/03/2017:  ");
 						snemp[contSinEmp].setData(new Scanner(System.in).nextLine());
